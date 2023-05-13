@@ -55,4 +55,9 @@ public class PostService {
         post.updatePost(requestDto);
         return post;
     }
+
+    public List<Post> findPostListByWriter(Long accountId) {
+        Account account = accountService.findAccountById(accountId);
+        return postRepository.findAllByWriter(account);
+    }
 }
